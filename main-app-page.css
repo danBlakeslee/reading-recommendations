@@ -1,0 +1,176 @@
+/* body {
+  overflow-x: scroll;
+  
+} */
+
+.container-fluid { 
+    width: 120%;
+    margin-left: -1.5%;
+  }
+
+.header-bar {
+    background-color: rgb(44, 120, 78);
+    vertical-align: top;
+  }
+  
+.bar-books {
+    color: rgb(126, 63, 0);
+    font-size: 198%;
+      
+  }
+  
+.hidden-character {
+    color: rgb(44, 120, 78);
+  }
+  
+.footer-bar {
+    background-color: rgb(44, 120, 78);
+    }
+  
+#day-inputs {
+    background-color: rgb(228, 232, 231);
+    padding-bottom: 14%;  
+    
+  }
+ 
+.back-to-login-link {
+    margin-left: 1.7%;
+    margin-bottom: -1%;
+    font-family: "Helvetica";
+    color: rgb(180, 90, 0);
+  }
+  
+.input-instructions {
+    font-size: 75%;
+    margin-left: 1.7%;
+  }
+  
+.example-input {
+    font-size: 75%;
+    margin-left: 1.7%;
+  }
+  
+#add-books-link {
+    color: rgb(180, 90, 0);
+    font-family: "Helvetica";
+    margin-top: 5%;
+    margin-left: -10%;
+    Margin-bottom: -10%;
+
+  } 
+
+.instructions-for-add-book {
+  font-size: 75%;
+  margin-top: 10%;
+  margin-left: -10%;
+  margin-bottom: -11%;
+  
+}
+#point-down {
+    margin-left: 6.6%;
+    animation-duration: 2.5s;
+    animation-iteration-count: 2.5;
+    
+  }
+  
+.motivation-radio-buttons {
+    font-weight: bold;
+    font-family: "Bodoni MT";
+  }
+  
+.day-buttons {
+    font-family: "Bodoni MT";
+    background-color: rgb(56, 152, 99);
+    color: rgb(126, 63, 0);
+    text-shadow: -.5px -.5px 0 white,
+                  .5px -.5px 0 white,
+                  -.5px .5px 0 white,
+                   .5px .5px 0 white;
+    letter-spacing: 2.5px;
+    width: 9%;
+    font-size: 135%;
+    font-weight: bold;
+  }
+  
+  #output-box {
+    margin-left: 2.5%;
+    padding-left: .5%;
+    padding-right: 12%;
+    padding-bottom: 10%;
+    border-style: solid;
+    border-width: 2px;
+    margin-top: .5%;
+    position: absolute;
+    
+   
+      
+    
+  }
+
+
+
+
+#empty-span-output {
+  font-size: 70%;
+  position: relative;
+  
+}
+
+#exit-button {
+  background-color: rgb(44, 120, 78);
+  color: rgb(221, 171, 120);
+  border-style: solid;
+  border-width: .5px;
+  border-color: rgb(221, 171, 120);      
+  margin-top: 1%;
+  margin-left: 95%;
+  height: 21.5px;
+  width: 24px;
+  font-size: 75%;
+  
+}     
+
+#add-books-form {
+  border-style: solid;
+  border-width: 2px;
+  height: 50%;
+  margin-top: -35%;
+  margin-bottom: 13%;
+  margin-left: 30%;
+  font-family: "Bodoni MT";
+  background-color: rgb(228, 232, 231);
+}
+
+.author-label {
+  margin-top: 1%;
+  padding-left: .5%;
+}
+
+.style-label {
+  padding-left: 11%;
+  padding-top: .75%;
+  margin-right: 2%
+}
+
+.instructions-for-importance {
+  font-size: 75%;
+}
+
+.importance-label {
+  padding-left: 3.6%;
+  padding-top: 2%;
+  margin-right: 2%;
+}
+
+.add-books-button-and-characters {
+  margin-left: -10%;
+}
+
+.add-book-buttons {
+  font-size: 96%;
+  background-color: rgb(44, 120, 78);
+  color: rgb(221, 171, 120);
+}
+
+
+  
