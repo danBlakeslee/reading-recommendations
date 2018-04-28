@@ -6,7 +6,7 @@ $(document).ready(function () {
         const localStorageUsername = localStorage.getItem("username");
         const localStoragePassword = localStorage.getItem("password");
         if (typedUsername == localStorageUsername && typedPassword === localStoragePassword) {
-            window.location.href = "file:///C:/Users/Dan/Desktop/Coding/Reading%20Recommendations/main-app-page.html";
+            window.location.href = "./src/main-page.html";
         } else if (localStorageUsername === null || localStoragePassword === null) {
             alert("Please create an account.")
         } else {
