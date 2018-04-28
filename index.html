@@ -1,0 +1,95 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./src/styles/log-in-css.css">
+    <meta charset="UTF-8"></meta>
+
+</head>
+<!-- Start of Header -->
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="col-lg-12 text-center pb-4 header">
+                <span class="left-symbol font-weight-bold pr-3">&#x1f56e;</span>
+                Reading Recommendations
+                <span class="right-symbol pl-3 font-weight-bold">&#x1f56e;</span>
+            </h1>
+        </div>
+    </div>
+    <!-- End of header -->
+
+    <!-- Beginning of background -->
+    <div class="background">
+        <image src="./images/background-image.jpg" alt="books" style="background-repeat: repeat-7" class="background-image w-100 img-fluid h-100"
+        />
+
+        <!-- Beginning of log in form -->
+        <form id="log-in-form" class="mx-auto w-25 position-relative log-in-page-form">
+            <span class="text-prompt-for-no-account pl-5 pt-3 d-block text-center font-weight-bold">Don't Have an Account?
+                <a href="#" id="create-account-link" class="front-page-links pl-2">
+                    <u>Create Account</u>
+                </a>
+            </span>
+            <h2 class="log-in-header font-weight-bold text-center d-block pt-5">Log In</h2>
+            <div class="username-input pb-2 pt-3">
+                <span class="username-label pl-5 ml-4 mr-2 font-weight-bold">Username</span>
+                <input type="text" class="username-input-field">
+            </div>
+            <div clas="password-input">
+                <span class="password-label pr-1 pl-5 mr-2 ml-4 font-weight-bold">Password</span>
+                <input type="text" class="password-input-field">
+            </div>
+            <div class="container-fluid button-and-characters pt-4">
+                <div class="row button-and-characters justify-content-md-center">
+                    <span class="log-in-book-character-left col text-center font-weight-bold">&#x1f56e;</span>
+                    <button href="#" id="log-in-button" class="first-page-buttons mt-4 rounded border-secondary font-weight-bold w-50 col">LOG IN</button>
+                    <span class="log-in-book-character-right col text-center font-weight-bold">&#x1f56e;</span>
+                </div>
+            </div>
+        </form>
+
+        <form id="create-account-form" class="mx-auto w-25 position-relative log-in-page-form">
+            <span class="text-prompt-for-no-account pl-5 pt-3 d-block text-center font-weight-bold">
+                <a href="" id="back-link" class="front-page-links text-center">
+                    <u>BACK</u>
+                </a>
+            </span>
+            <h2 class="log-in-header font-weight-bold text-center d-block pt-5">Create Account</h2>
+            <div class="username-input pb-2 pt-3">
+                <span class="username-label pl-5 ml-4 mr-2 font-weight-bold">Username</span>
+                <input type="text" id="create-username-input-field" />
+            </div>
+            <div class="password-input">
+                <span class="password-label pr-1 pl-5 mr-2 ml-4 font-weight-bold">Password</span>
+                <input type="text" id="create-password-input-field" />
+            </div>
+            <div class="confirm-pass-input pt-2">
+                <span class="confirm-pass-label font-weight-bold">Confirm Password</span>
+                <input type="text" class="confirm-pass-input-field" />
+            </div>
+            <div class="container-fluid button-and-characters pt-4">
+                <div class="row button-and-characters justify-content-md-center">
+                    <span class="log-in-book-character-left col text-center font-weight-bold">&#x1f56e;</span>
+                    <button id="create-account-button" href="#" class="first-page-buttons mt-4 rounded border-secondary font-weight-bold w-50 col">REGISTER</button>
+                    <span class="log-in-book-character-right col text-center font-weight-bold">&#x1f56e;</span>
+                </div>
+            </div>
+        </form>
+        <!--   End of log in form -->
+    </div>
+    <!-- End of Background -->
+
+    <!-- Beginning of Footer -->
+    <div class="container-fluid">
+        <div class="row">
+            <h3 class="col-lg-12 text-center log-in-footer">
+                <span class="left-footer-symbol font-weight-bold">&#x1f56e;</span>
+                Welcome to the tool that offers recommendations based on the quantity of your precious time
+                <span class="right-footer-symbol font-weight-bold">&#x1f56e;</span>
+            </h3>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./src/components/reading.js"></script>
+</body>
+<!-- End of Footer -->

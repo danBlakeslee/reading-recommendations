@@ -1,0 +1,112 @@
+.header {
+    font-family: "AR DECODE", "AR Julian", "Edwardian Script ITC", "Script MT Bold", sans-serif;
+    color: rgb(126, 63, 0);
+    font-size: 500%;
+    border-bottom-style: solid;
+    border-width: 2px;
+    box-shadow: 1px 1px 1px 1px rgb(180, 90, 0);
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(180, 90, 0), 0 0 30px rgb(180, 90, 0), 0 0 40px rgb(180, 90, 0), 0 0 50px rgb(180, 90, 0), 0 0 75px rgb(180, 90, 0);
+    }     
+  
+  .container-fluid {
+    background-color: rgb(44, 120, 78);
+    
+  }
+  
+  .text-prompt-for-no-account {
+    font-family: "Bodoni MT";
+   
+  }
+  
+  .log-in-header {
+    font-family: "Bodoni MT";
+  }
+  
+  .username-label {
+    font-family: "Bodoni MT";
+    margin-left: -1.7%;
+      }
+  
+  .password-label {
+    font-family: "Bodoni MT";
+    margin-left: -1.7%;
+  }
+  
+  .confirm-pass-label {
+    font-family: "Bodoni MT";
+    margin-left: 5.5%;
+    
+    
+    
+  }
+
+
+.confirm-pass-input {
+    display: block;
+}
+  
+  .first-page-buttons {
+    font-family: "Bodoni MT";
+    width: 17%;
+    margin-bottom: 40%;
+    background-color: rgb(56, 154, 100);
+    color: rgb(180, 90, 0);
+  }
+  
+  .log-in-page-form {
+    border-style: solid;
+    border-width: 2px;
+    margin-bottom: 13%;
+    background-color: rgb(228, 232, 231);
+    margin-top: -40%;
+    box-shadow: 1px 1px 0.5px rgb(228, 232, 231);
+    
+    }
+
+  .log-in-book-character-left {
+    font-size: 200%
+  }
+  
+  .log-in-book-character-right {
+    font-size: 200%;
+  }
+  
+  .button-and-characters {
+    background-color: rgb(228, 232, 231);
+  }
+  
+  .log-in-footer {
+    font-family: "AR DECODE", "AR Julian", "Edwardian Script ITC", "Script MT Bold", sans-serif;
+    color: rgb(126, 63, 0);
+    font-size: 350%;
+    border-top-style: solid;
+    border-width: 2px;
+    background-color: rgb(44, 120, 78);
+    box-shadow: 0px -1px 5px 0px rgb(180, 90, 0);
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(180, 90, 0), 0 0 30px rgb(180, 90, 0), 0 0 40px rgb(180, 90, 0), 0 0 50px rgb(180, 90, 0), 0 0 75px rgb(180, 90, 0);
+  }
+  
+  .front-page-links {
+      color: rgb(180, 90, 0);
+  }
+
+  .background-image {
+    border-top-style: solid;
+    border-width: 2px;
+    border-color: rgb(126, 63, 0); 
+    box-shadow: 0px -1px 5px 0px rgb(180, 90, 0);
+  }
+
+  #log-in-form {
+    display: block;
+  }
+
+  #create-account-form {
+    display: none;
+  }
+
+  #back-link {
+      margin-left: -10%;
+  }
+
+ 
