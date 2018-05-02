@@ -112,130 +112,69 @@ $(document).ready(function () {
             <div><br> ${findTopFiveRecommendedBooks(writingStyle)}</div>`
         );
     };
+
+
+    const setupMotivationConditions = (availableTimeCondition, lowerCaseDayOfTheWeek, dayOfWeek, availableTime, writingStyle) => {
+        if (availableTimeCondition && $('#' + lowerCaseDayOfTheWeek + '-not-motivated').is(':checked'))
+            outputTimeAndTop5Books(dayOfWeek, availableTime, 0.25, writingStyle);
+        else if (availableTimeCondition && $('#' + lowerCaseDayOfTheWeek + '-somewhat-motivated').is(':checked'))
+            outputTimeAndTop5Books(dayOfWeek, availableTime, 0.5, writingStyle);
+        else if (availableTimeCondition && $('#' + lowerCaseDayOfTheWeek + '-motivated').is(':checked'))
+            outputTimeAndTop5Books(dayOfWeek, availableTime, 0.75, writingStyle);
+        else if (availableTimeCondition && $('#' + lowerCaseDayOfTheWeek + '-very-motivated').is(':checked'))
+            outputTimeAndTop5Books(dayOfWeek, availableTime, 1, writingStyle);
+    };
+
+
     const generateRecommendation = (dayOfWeek) => {
+
         const lowerCaseDayOfTheWeek = dayOfWeek.toLowerCase();
         const availableTime = $("." + lowerCaseDayOfTheWeek + "-time-input").val();
 
 
-        if (availableTime >= 5 && $('#' + lowerCaseDayOfTheWeek + '-not-motivated').is(':checked')) {
-            outputTimeAndTop5Books(
-                dayOfWeek, availableTime, 0.25,
-                "complicated-noteworthy-nonfiction"
-            )
-            $("#empty-span-output").html(
-                `<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-                <div>Complicated and Noteworthy Nonfiction for: ${decimalToTime(availableTime * 0.25)}</div>
-                <div><br> Top Five Recommended Books</div>
-                <div><br> ${findTopFiveRecommendedBooks("complicated-noteworthy-nonfiction")}</div>`);
+        setupMotivationConditions(
+            availableTime >= 5,
+            lowerCaseDayOfTheWeek,
+            dayOfWeek,
+            availableTime,
+            "complicated-noteworthy-nonfiction"
+        );
 
-        } else if (availableTime >= 5 && $('#' + lowerCaseDayOfTheWeek + '-somewhat-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>Complicated and Noteworthy Nonfiction for: ${decimalToTime(availableTime * 0.5)}</div>
-            <div><br> Top Five Recommended Books</div>
-            <div><br> ${findTopFiveRecommendedBooks("complicated-noteworthy-nonfiction")}</div>`);
-        } else if (availableTime >= 5 && $('#' + lowerCaseDayOfTheWeek + '-motivated').is(':checked')) {
-            $("#empty-span-output").html(
-                `<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-                <div>Complicated and Noteworthy Nonfiction for: ${decimalToTime(availableTime * .75)}</div>
-                <div><br> Top Five Recommended Books</div>
-                <div><br> ${findTopFiveRecommendedBooks("complicated-noteworthy-nonfiction")}</div>`
-            );
-        } else if (availableTime >= 5 && $('#' + lowerCaseDayOfTheWeek + '-very-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>Complicated and Noteworthy Nonfiction for: ${decimalToTime(availableTime * 1)}</div>
-            <div><br> Top Five Recommended Books</div>
-            <div><br> ${findTopFiveRecommendedBooks("complicated-noteworthy-nonfiction")}</div>`);
-        }
-        //second input range
-        else if (availableTime < 5 && availableTime >= 3 && $('#' + lowerCaseDayOfTheWeek + '-not-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>Noteworthy Nonfiction for: ${decimalToTime(availableTime * 0.25)}</div>
-            <div><br> Top Five Recommended Books</div> 
-            <div><br> ${findTopFiveRecommendedBooks("noteworthy-nonfiction")()}</div>`);
-        } else if (availableTime < 5 && availableTime >= 3 && $('#' + lowerCaseDayOfTheWeek + '-somewhat-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>Noteworthy Nonfiction for: ${decimalToTime(availableTime * 0.5)}
-             <div><br> Top Five Recommended Books</div>
-             <div><br> ${findTopFiveRecommendedBooks("noteworthy-nonfiction")()}</div>`);
-        } else if (availableTime < 5 && availableTime >= 3 && $('#' + lowerCaseDayOfTheWeek + '-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>Noteworthy Nonfiction for: ${decimalToTime(availableTime * .75)}
-             <div><br> Top Five Recommended Books</div> 
-             <div><br> ${findTopFiveRecommendedBooks("noteworthy-nonfiction")()}</div>`);
-        } else if (availableTime < 5 && availableTime >= 3 && $('#' + lowerCaseDayOfTheWeek + '-very-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>Noteworthy Nonfiction for:  ${decimalToTime(availableTime * 1)}
-             <div><br> Top Five Recommended Books</div> 
-             <div><br> ${findTopFiveRecommendedBooks("noteworthy-nonfiction")()}</div>`);
-            //third input range
-        } else if (availableTime < 3 && availableTime >= 1 && $('#' + lowerCaseDayOfTheWeek + '-not-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>casual Nonfiction for: ${decimalToTime(availableTime * 0.25)}
-             <div><br> Top Five Recommended Books</div> 
-             <div><br> ${findTopFiveRecommendedBooks("casual-nonfiction")()}</div>`);
-        } else if (availableTime < 3 && availableTime >= 1 && $('#' + lowerCaseDayOfTheWeek + '-somewhat-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>casual Nonfiction for: ${decimalToTime(availableTime * 0.5)}
-             <div><br> Top Five Recommended Books</div> 
-             <div><br>  ${findTopFiveRecommendedBooks("casual-nonfiction")()}</div>`);
-        } else if (availableTime < 3 && availableTime >= 1 && $('#' + lowerCaseDayOfTheWeek + '-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>casual Nonfiction for: ${decimalToTime(availableTime * .75)}
-             <div><br> Top Five Recommended Books</div> 
-             <div><br>  ${findTopFiveRecommendedBooks("casual-nonfiction")()}</div>`);
-        } else if (availableTime < 3 && availableTime >= 1 && $('#' + lowerCaseDayOfTheWeek + '-very-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>casual Nonfiction for: ${decimalToTime(availableTime * 1)}
-             <div><br> Top Five Recommended Books</div> 
-             <div><br> ${findTopFiveRecommendedBooks("casual-nonfiction")()}</div>`);
-            //fourth input range
-        } else if (availableTime < 1 && availableTime >= 0.5 && $('#' + lowerCaseDayOfTheWeek + '-not-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>Fiction for: ${decimalToTime(availableTime * 0.25)}
-             <br> Pick your favorite subgenre! 
-             <div><br> Top Five Recommended Books</div> 
-             <div><br> ${findTopFiveRecommendedBooks("fiction")()}</div>`);
-        } else if (availableTime < 1 && availableTime >= 0.5 && $('#' + lowerCaseDayOfTheWeek + '-somewhat-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>Fiction for: ${decimalToTime(availableTime * 0.5)}
-             <br> Pick your favorite subgenre! 
-             <div><br> Top Five Recommended Books</div> 
-             <div><br> ${findTopFiveRecommendedBooks("fiction")()}</div>`);
-        } else if (availableTime < 1 && availableTime >= 0.5 && $('#' + lowerCaseDayOfTheWeek + '-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>Fiction for: ${decimalToTime(availableTime * .75)}
-             <br> Pick your favorite subgenre!
-              <div><br> Top Five Recommended Books</div>
-               <div><br> ${findTopFiveRecommendedBooks("fiction")()}</div>`);
-        } else if (availableTime < 1 && availableTime >= 0.5 && $('#' + lowerCaseDayOfTheWeek + '-very-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>Fiction for: ${decimalToTime(availableTime * 1)}
-             <br> Pick your favorite subgenre! 
-             <div><br> Top Five Recommended Books</div> 
-             <div><br> ${findTopFiveRecommendedBooks("fiction")()}</div>`);
-            //fifth input range
-        } else if (availableTime < 0.5 && availableTime > 0 && $('#' + lowerCaseDayOfTheWeek + '-not-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>a short story or a comic book for: ${decimalToTime(availableTime * 0.25)}
-             <div><br> Top Five Recommended Books</div> 
-             <div><br> ${findTopFiveRecommendedBooks("short-story-or-comic-book")()}</div>`);
-        } else if (availableTime < 0.5 && availableTime > 0 && $('#' + lowerCaseDayOfTheWeek + '-somewhat-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>a short story or a comic book for: ${decimalToTime(availableTime * 0.5)}
-             <div><br> Top Five Recommended Books</div> 
-             <div><br> ${findTopFiveRecommendedBooks("short-story-or-comic-book")()}</div>`);
-        } else if (availableTime < 0.5 && availableTime > 0 && $('#' + lowerCaseDayOfTheWeek + '-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>a short story or a comic book for: ${decimalToTime(availableTime * .75)}
-             <div><br> Top Five Recommended Books</div> 
-             <div><br> ${findTopFiveRecommendedBooks("short-story-or-comic-book")()}</div>`);
-        } else if (availableTime < 0.5 && availableTime > 0 && $('#' + lowerCaseDayOfTheWeek + '-very-motivated').is(':checked')) {
-            $("#empty-span-output").html(`<div>For this ${dayOfWeek}, the ${retrieveDate()} read:</div>
-            <div>a short story or a comic book for: ${decimalToTime(availableTime * 1)}
-             <div><br> Top Five Recommended Books</div> 
-             <div><br> ${findTopFiveRecommendedBooks("short-story-or-comic-book")()}</div>`);
-            //sixth input range
-        } else if (availableTime == 0) {
+        setupMotivationConditions(
+            availableTime < 5 && availableTime >= 3,
+            lowerCaseDayOfTheWeek,
+            dayOfWeek,
+            availableTime,
+            "noteworthy-nonfiction"
+        );
+
+        setupMotivationConditions(
+            availableTime < 3 && availableTime >= 1,
+            lowerCaseDayOfTheWeek,
+            dayOfWeek,
+            availableTime,
+            "casual-nonfiction"
+        );
+
+        setupMotivationConditions(
+            availableTime < 1 && availableTime >= 0.5,
+            lowerCaseDayOfTheWeek,
+            dayOfWeek,
+            availableTime,
+            "fiction"
+        );
+
+        setupMotivationConditions(
+            availableTime < 0.5 && availableTime > 0,
+            lowerCaseDayOfTheWeek,
+            dayOfWeek,
+            availableTime,
+            "short-story-or-comic-book"
+        );
+
+
+
+        if (availableTime == 0) {
             $("#empty-span-output").html("Ouch! Today looks too busy to read. I feel for you!");
 
         }
