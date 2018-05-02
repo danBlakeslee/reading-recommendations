@@ -125,60 +125,31 @@ $(document).ready(function () {
             outputTimeAndTop5Books(dayOfWeek, availableTime, 1, writingStyle);
     };
 
+    const WRITING_STYLE_CONDITIONS = {
+        "complicated-noteworthy-nonfiction": function (time) { return time >= 5 },
+        "noteworthy-nonfiction": function (time) { return time < 5 && time >= 3 },
+        "casual-nonfiction": function (time) { return time < 3 && time >= 1 },
+        "fiction": function (time) { return time < 1 && time >= 0.5 },
+        "short-story-or-comic-book": function (time) { return time < 0.5 && time > 0 }
+    };
 
     const generateRecommendation = (dayOfWeek) => {
 
         const lowerCaseDayOfTheWeek = dayOfWeek.toLowerCase();
         const availableTime = $("." + lowerCaseDayOfTheWeek + "-time-input").val();
 
-
-        setupMotivationConditions(
-            availableTime >= 5,
-            lowerCaseDayOfTheWeek,
-            dayOfWeek,
-            availableTime,
-            "complicated-noteworthy-nonfiction"
-        );
-
-        setupMotivationConditions(
-            availableTime < 5 && availableTime >= 3,
-            lowerCaseDayOfTheWeek,
-            dayOfWeek,
-            availableTime,
-            "noteworthy-nonfiction"
-        );
-
-        setupMotivationConditions(
-            availableTime < 3 && availableTime >= 1,
-            lowerCaseDayOfTheWeek,
-            dayOfWeek,
-            availableTime,
-            "casual-nonfiction"
-        );
-
-        setupMotivationConditions(
-            availableTime < 1 && availableTime >= 0.5,
-            lowerCaseDayOfTheWeek,
-            dayOfWeek,
-            availableTime,
-            "fiction"
-        );
-
-        setupMotivationConditions(
-            availableTime < 0.5 && availableTime > 0,
-            lowerCaseDayOfTheWeek,
-            dayOfWeek,
-            availableTime,
-            "short-story-or-comic-book"
-        );
-
-
-
-        if (availableTime == 0) {
-            $("#empty-span-output").html("Ouch! Today looks too busy to read. I feel for you!");
-
+        for (writingStyle in WRITING_STYLE_CONDITIONS) {
+            setupMotivationConditions(
+                WRITING_STYLE_CONDITIONS[writingStyle](availableTime),
+                lowerCaseDayOfTheWeek,
+                dayOfWeek,
+                availableTime,
+                writingStyle
+            );
         }
 
+        if (availableTime == 0)
+            $("#empty-span-output").html("Ouch! Today looks too busy to read. I feel for you!");
     };
 
 
