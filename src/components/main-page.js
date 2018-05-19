@@ -75,10 +75,10 @@ $(document).ready(function () {
                 top5Books = sortedArrayByImportance.slice(0, 5);
             }
         }
-
+        console.log(top5Books);
         const formattedTop5Books = top5Books.map((book, index) =>
-            ` Title: ${book[index][0]} \xa0\xa0Author: ${book[index][1]} \xa0\xa0Importance: \xa0 ${book[index][3]}<br>`
-        ).join();
+            ` Title: ${book[0]} \xa0\xa0Author: ${book[1]} \xa0\xa0Importance: \xa0 ${book[3]}`
+        ).join("<br>");
 
         return formattedTop5Books;
     }
@@ -153,7 +153,7 @@ $(document).ready(function () {
     };
 
 
-    //add books form code end
+
 
     const sunday = (event) => {
         event.preventDefault();
